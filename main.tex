@@ -14,6 +14,32 @@
 \homework{\today}{Problem Set 2}{Vasileios Charisopoulos}{vc333}%
 {Math 6410 - Enumerative Combinatorics}
 
+\section*{Problem 3}
+Let us consider an arbitrary face lattice $\cL$ of rank $\mathrm{rk}(\cL) = 3$.
+By~\cite[Theorem 2.7]{Zieg95}, we know that the face lattice of a polytope $P$
+admits a rank function that satisfies $\mathrm{rk}(F) = \dim(F) + 1, F$ a face
+of $P$. Since the rank of a graded lattice is equal to the rank of a maximal
+chain, we deduce that $\mathrm{rk}(\cL(P)) = 3 \Leftrightarrow \dim(P) = 2$.
+
+Now, we show that given any two face lattices of rank $3$, $\cL(P), \cL(P')$, 
+with equinumerous levels, we can deduce that they are the same and so they
+correspond to the same kind of polygon. The cases of $\hat{0}, \hat{1}$ are 
+trivial: in both $\cL(P)$ and $\cL(P')$, they correspond to the empty set and 
+the whole polygon respectively.
+
+The first and second levels being equinumerous implies that the two polygons 
+have the same number of vertices and edges.  Therefore, $\cL(P), \cL(P')$ both 
+correspond to a $n$-gon in the plane, and all $n$-gons have the same face 
+lattice (up to isomorphism): every vertex is incident to exactly $2$ edges and
+every edge connects $2$ vertices, so we can pick an arbitrary starting vertex 
+in $P$ and $P'$ and traverse the cycles 
+\[
+    v_1 \to v_2 \to \dots \to v_n \to v_1, \;
+    v'_1 \to v'_2 \to \dots \to v'_n \to v'_1
+\]
+so the mapping $v_i \leftrightarrow v'_i$ is an isomorphism between their face
+lattices, as edges are uniquely defined by $(v_i, v_j) \leftrightarrow (v'_i, 
+v'_j)$ and hence $\cL(P) \simeq \cL(P')$.
 \bibliographystyle{plain}
 \bibliography{references}
 
