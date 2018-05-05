@@ -1,0 +1,42 @@
+% Required packages
+\usepackage{bm,bbm}
+\usepackage{amsmath,amssymb,amsthm,cancel}
+\usepackage{fullpage, algorithm, algpseudocode}
+\usepackage{minted, caption}
+
+% Color references
+\usepackage[
+    colorlinks=true, citecolor=blue, linkcolor=blue]{hyperref}
+
+% More shortcuts
+\newcommand{\ve}{\varepsilon}
+\newcommand{\dl}{\delta}
+
+%\everymath{\displaystyle}
+
+\newcommand{\homework}[5]{
+	\noindent
+    \begin{center}
+    	\framebox{
+        	\vbox{
+            	% Course Title and Date
+            	\hbox to \hsize { \textsc{ #5 } \hfill #1 }
+                \vspace{4mm}
+                % Title of handout/homework
+                \hbox to \hsize { {\Large \hfill \textsc{#2} \hfill} }
+                \vspace{2mm}
+                % Name, Cornell NetID
+                \hbox to \hsize {\hfill \textbf{\textsf{#3}} - \texttt{#4@cornell.edu} \hfill }
+                \vspace{1mm}
+            }
+        }
+    \end{center}
+}
+
+
+\newenvironment{alglist}{\begin{list}{}{\setlength{\leftmargin}{1.5cm}
+\setlength{\rightmargin}{0cm}\setlength{\itemsep}{1ex}\setlength{\parsep}{1ex}}}{\end{list}}
+
+\newcommand{\problem}[3]
+{\fbox{\parbox{6in}{{\bf #1}\begin{itemize}\item{\bf Input:} {#2} \item{\bf 
+Goal:} {#3}\end{itemize}}}}
