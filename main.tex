@@ -21,25 +21,119 @@ admits a rank function that satisfies $\mathrm{rk}(F) = \dim(F) + 1, F$ a face
 of $P$. Since the rank of a graded lattice is equal to the rank of a maximal
 chain, we deduce that $\mathrm{rk}(\cL(P)) = 3 \Leftrightarrow \dim(P) = 2$.
 
-Now, we show that given any two face lattices of rank $3$, $\cL(P), \cL(P')$, 
+Now, we show that given any two face lattices of rank $3$, $\cL(P), \cL(P')$,
 with equinumerous levels, we can deduce that they are the same and so they
-correspond to the same kind of polygon. The cases of $\hat{0}, \hat{1}$ are 
-trivial: in both $\cL(P)$ and $\cL(P')$, they correspond to the empty set and 
+correspond to the same kind of polygon. The cases of $\hat{0}, \hat{1}$ are
+trivial: in both $\cL(P)$ and $\cL(P')$, they correspond to the empty set and
 the whole polygon respectively.
 
-The first and second levels being equinumerous implies that the two polygons 
-have the same number of vertices and edges.  Therefore, $\cL(P), \cL(P')$ both 
-correspond to a $n$-gon in the plane, and all $n$-gons have the same face 
+The first and second levels being equinumerous implies that the two polygons
+have the same number of vertices and edges.  Therefore, $\cL(P), \cL(P')$ both
+correspond to a $n$-gon in the plane, and all $n$-gons have the same face
 lattice (up to isomorphism): every vertex is incident to exactly $2$ edges and
-every edge connects $2$ vertices, so we can pick an arbitrary starting vertex 
-in $P$ and $P'$ and traverse the cycles 
+every edge connects $2$ vertices, so we can pick an arbitrary starting vertex
+in $P$ and $P'$ and traverse the cycles
 \[
     v_1 \to v_2 \to \dots \to v_n \to v_1, \;
     v'_1 \to v'_2 \to \dots \to v'_n \to v'_1
 \]
 so the mapping $v_i \leftrightarrow v'_i$ is an isomorphism between their face
-lattices, as edges are uniquely defined by $(v_i, v_j) \leftrightarrow (v'_i, 
+lattices, as edges are uniquely defined by $(v_i, v_j) \leftrightarrow (v'_i,
 v'_j)$ and hence $\cL(P) \simeq \cL(P')$.
+
+\section*{Problem 4}
+First, recall that given a poset $(P, \leq)$, its order ideals are precisely
+the sets $I \subset P$ such that
+\[
+    t \in I, s \leq t \Rightarrow s \in I
+\]
+The corresponding \textit{dual order ideals} are defined in a symmetric fashion:
+a set $J \subset P$ is a dual order ideal if
+\[
+    t \in J, t \leq s \Rightarrow s \in J.
+\]
+Given a (finite) poset $(P, \leq)$ we can associate it with the \textit{order
+polytope} $\cO(P)$, which is defined as follows: we denote the elements of $P$
+by $x_1, \dots, x_n$, where $n$ is the size of $P$, and write
+\begin{equation}
+    \Rbb^n \supseteq \cO(P) \equiv \begin{cases}
+        0 \leq z_i \leq 1, & \forall x_i \in P, \\
+        z_i \leq z_j, & \text{if } x_i \leq x_j \text{ in P}
+    \end{cases}
+    \label{eq:order_poly_def}
+\end{equation}
+Notice that the definition in~\cref{eq:order_poly_def} is essentially the same
+as the one given in~\cite{Stan86}, but we implicitly substitute $z_i = f(x_i)$.
+We start with an auxiliary claim:
+
+\begin{claim}
+The vertices of $\cO(P)$ lie in the set $\set{0, 1}^n$.
+\label{claim:0_1_vert}
+\end{claim}
+\begin{proof}
+Consider some $\bm{z} \in \cO(P)$ with a coordinate $z_i$ such that $0 < z_i <
+1$. Take $z_* \tdef \min\set{z_i \mmid 0 < z_i < 1}$, and generate the new
+points $\bm{z}^+, \bm{z}^-$, with
+\[	z^+_i = \begin{cases}
+    z_i, & z_i \neq z_* \\
+    z_* + \veps, & z_i = z_*
+\end{cases}, \quad
+z^-_i = \begin{cases}
+    z_i, & z_i \neq z_* \\
+    z_* - \veps, & z_i = z_*
+\end{cases}.
+\] It is easy to verify that $\bm{z}^+, \bm{z}^- \in \cO(P)$ and that
+$\bm{z} = \frac{1}{2}\left( \bm{z}^+ + \bm{z}^- \right)$, that is $\bm{z}
+\in \convhull\set{\bm{z}^+, \bm{z}^-}$, hence $\bm{z}$ cannot be a vertex.
+\end{proof}
+Given a dual order ideal $I$, consider its characteristic function,
+\[
+    \chi_I(x) = \begin{cases}
+        1, & x \in I \\
+        0, & \text{ otherwise}
+    \end{cases}.
+\]
+Additionally, denote the set of all dual order ideals of $P$ by $\bar{J}(P)$.
+We will prove the following:
+\begin{claim}
+    There exists a bijection between the characteristic functions of the dual
+    order ideals of $P$ and the vertices of $\cO(P)$.
+\end{claim}
+\begin{proof}
+    Consider a dual order ideal $I$, and take its characteristic function:
+    \[
+        \chi_I(x_i) = \begin{cases}
+            1, & x_i \in I \\
+            0, & x_i \notin I
+        \end{cases}
+    \]
+    We can map $I$ to a vertex $\bm{v}$, by considering
+    \[
+        \bm{v}_i = \chi_I(x_i)
+    \]
+    It is immediately obvious that $\bm{v}_i \in \set{0, 1}^n$. Additionally,
+    $\bm{v} \in \cO(P)$, as the following is satisfied: $x_j \geq x_i, x_i
+    \in I \Rightarrow x_j \in I$ by the definition of the dual order ideal,
+    and $\bm{v}_j = 1 \geq 1 = \bm{v}_i$, so $\bm{v} \in \cO(P)$. Therefore,
+    the inclusion $\set{\chi_I \mmid I \in \bar{J}(P)} \subseteq
+    \mathrm{vert}(\cO(P)) $ holds.
+
+    Now, we will prove that $\mathrm{vert}(\cO(P)) \subseteq
+    \set{\chi_I \mmid I \in \bar{J}(P)}$. Take a vertex $\bm{v} \in
+    \cO(P)$ and a pair of its coordinates $v_j = 0, v_i = 1$. Then, we
+    have 2 cases:
+    \begin{itemize}
+    \item $x_i \leq x_j$ in $P$: this cannot happen by the definition of $
+    \cO(P)$, which would require $z_i \leq z_j, \; \forall \bm{z} \in \cO(P)
+    \Rightarrow v_i \leq v_j$.
+    \item $x_i \geq x_j$ or $x_i, x_j$ incomparable in $P$: in this case,
+    $\bm{v}$ corresponds to an ideal $I$ whose characteristic satisfies
+    $\chi_I(x_i) = 1, \chi_I(x_j) = 0$. Such an ideal exists since $x_j \ngeq
+    x_i$, otherwise we would have $x_j \in I \Rightarrow \chi_I(x_j) = 1$.
+    \end{itemize}
+    Therefore we obtain $\mathrm{vert}(\cO(P)) = \set{\chi_I \mmid
+    I \in \bar{J}(P)}$.
+\end{proof}
 \bibliographystyle{plain}
 \bibliography{references}
 
