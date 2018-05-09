@@ -14,6 +14,44 @@
 \homework{\today}{Problem Set 2}{Vasileios Charisopoulos}{vc333}%
 {Math 6410 - Enumerative Combinatorics}
 
+\section*{Problem 1}
+Consider a distributive lattice $L$. By the fundamental theorem of finite
+distributive lattices~\cite[Theorem 3.4.1]{Stan12}, we know that there exists
+a unique (up to isomorphism) poset $P$ such that $L \simeq J(P)$.
+Additionally, we know that the number of multichains of length $n$ in $J(P)$
+that have the form
+\[
+    \hat{0} = t_0 \leq t_1 \dots \leq t_n = \hat{1}
+\]
+is equal to the number of order-preserving maps $\sigma : P \to \bm{n}$,
+by~\cite[Proposition 3.5.1]{Stan12}. Therefore, since $Z(B_k, n)$ counts the
+number of multichains of length $n - 2$ in $B_k$ - or, equivalently, the number
+of multichains of length $ n $ that have the form
+\[
+    \hat{0} = t_0 \leq t_1 \dots \leq t_{n-1} \leq t_n = \hat{1},
+\]
+it suffices to find a lattice $L$ such that $B_k = J(L)$ for which the number
+of order-preserving maps $\pi: L \to \bm{n}$ is easy to calculate. Hence our
+claim:
+\begin{claim}
+    $B_k \simeq J(k \bm{1})$, where $k \bm{1} =
+    \underbrace{\bm{1} + \dots + \bm{1}}_{k \text{ times}}$.
+\end{claim}
+\begin{proof}
+    Every subset of $k \bm{1}$ is an order ideal, as any two elements of
+    the disjoint union $k \bm{1}$ are incomparable. Since $J(P)$ is the poset
+    of order ideals of $P$ ordered by inclusion and the order ideals of $k
+    \bm{1}$ are exactly its subsets, we must have
+    $J(k \bm{1}) \simeq B_k$.
+\end{proof}
+Now, since $k \bm{1}$ is a disjoint product of $1$'s, all maps from $k \bm{1}
+\to \bm{n}$ are order preserving. The number of maps $X \to Y$ for discrete sets
+$X, Y$ is given by $\abs{Y}^{\abs{X}}$, therefore we conclude that
+\[
+    Z(B_k, n) = \#\set{f \mmid f : k\bm{1} \to \bm{n}} = n^k,
+\]
+which agrees with the non-bijective proof in~\cite[Example 3.12.2]{Stan12}.
+
 \section*{Problem 3}
 Let us consider an arbitrary face lattice $\cL$ of rank $\mathrm{rk}(\cL) = 3$.
 By~\cite[Theorem 2.7]{Zieg95}, we know that the face lattice of a polytope $P$
